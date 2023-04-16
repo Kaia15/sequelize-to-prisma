@@ -13,7 +13,14 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false
     // allowNull defaults to true
-  }
+  },
+  // age: {
+  //   type: DataTypes.INTEGER,
+  //   defaultValue: 0
+  // },
+  // gender: {
+  //   type: DataTypes.STRING,
+  // }
 }, {
   // Other model options go here
   sequelize, // We need to pass the connection instance
