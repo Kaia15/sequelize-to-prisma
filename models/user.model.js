@@ -1,35 +1,29 @@
-const sequelize = require('../config/database')
-const {Model, DataTypes} = require("sequelize")
-
-class User extends Model {}
-
-User.init({
-  // Model attributes are defined here
-  firstName: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  lastName: {
-    type: DataTypes.STRING,
-    allowNull: false
-    // allowNull defaults to true
-  },
-  // age: {
-  //   type: DataTypes.INTEGER,
-  //   defaultValue: 0
-  // },
-  // gender: {
-  //   type: DataTypes.STRING,
-  // }
-}, {
-  // Other model options go here
-  sequelize, // We need to pass the connection instance
-  modelName: 'User', // We need to choose the model name
-  timestamps: true,
-  createdAt: true,
-  // I want updatedAt to actually be called updateTimestamp
-  updatedAt: 'updateTimestamp'
-});
-
-// the defined model is the class itself
-module.exports = User // true
+'use strict';
+const {
+  Model
+} = require('sequelize');
+const {
+  sequelize
+} = require('../config/database')
+module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  }
+  User.init({
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'User',
+    tableName: 'Users',
+    schema: 'public'
+  });
+  return User;
+};

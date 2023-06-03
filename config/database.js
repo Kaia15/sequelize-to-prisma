@@ -2,9 +2,9 @@ const { Sequelize, DataTypes, Model } = require("sequelize")
 const dotenv = require('dotenv')
 
 dotenv.config()
-const mydatabase = process.env.DATABASE
-const myusername = process.env.DB_USERNAME
-const mypassword = process.env.DB_PASSWORD
+const mydatabase = process.env.database
+const myusername = process.env.user
+const mypassword = process.env.password
 
 const sequelize = new Sequelize(mydatabase, myusername, mypassword, {
     host: 'localhost',

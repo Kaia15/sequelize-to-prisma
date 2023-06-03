@@ -1,4 +1,5 @@
-const Company = require('../models/company.model')
+const models = require('../models/index')
+const Company = models.Company
 const express = require('express');
 const router = express.Router();
 const {Op} = require('sequelize');
@@ -32,15 +33,15 @@ router.get('/', async function (req, res, next) {
 
 
     try {
-        const t = await sequelize.transaction();
-        const triplea = await Company.findOne({where: {id: 1}})
-        await triplea.update({profit: 1200000})
-        await triplea.save()
-        await t.commit()
+        // const t = await sequelize.transaction();
+        const companies = await Company.findAll({ attributes: ['id', 'name', 'age'] })
+        // await triplea.update({profit: 1200000})
+        // await triplea.save()
+        // await t.commit()
 
-        const companies = await Company.findAll({
-            attributes: ['profit']
-        })
+        // const companies = await Company.findAll({
+        //     attributes: ['profit']
+        // })
         await res.send(companies)
     } catch(err) {
         console.log(err)
