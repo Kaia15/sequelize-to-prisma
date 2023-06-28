@@ -1,9 +1,8 @@
 const models = require('../models/index')
-const Company = models.Company
+const Company = models.Company;
 const express = require('express');
 const router = express.Router();
 const {Op} = require('sequelize');
-const sequelize = require('../config/database');
 
 router.get('/', async function (req, res, next) {
     // const new_company = await Company.create({

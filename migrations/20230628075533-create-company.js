@@ -15,9 +15,6 @@ module.exports = {
       age: {
         type: Sequelize.INTEGER
       },
-      funding: {
-        type: Sequelize.INTEGER
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

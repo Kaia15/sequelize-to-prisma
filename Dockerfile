@@ -1,9 +1,13 @@
-FROM node:14
+FROM node:slim
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
 
-CMD ["npm", "start"]
+COPY . .
+
+EXPOSE 8000
+
+CMD npm run start

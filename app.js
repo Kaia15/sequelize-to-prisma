@@ -7,8 +7,8 @@ const nodemon = require('nodemon');
 const port = 8000;
 const app = express();
 
-const sequelize = require('./config/database')
-const queryInterface = sequelize.getQueryInterface()
+const models = require('./models/index')
+// const queryInterface = sequelize.getQueryInterface()
 const { DataTypes } = require('sequelize')
 // const Company = require('./models/company.model')
 
@@ -54,6 +54,7 @@ app.use(function(err, req, res, next) {
 // .catch(() => {
 //   console.log('Fail!')
 // })
+app.enable("trust proxy");
 
 
 // queryInterface.addColumn('Users', 'age', { type: DataTypes.INTEGER });
@@ -63,7 +64,9 @@ app.use(function(err, req, res, next) {
 // queryInterface.addColumn('Companies', 'profit', { type: DataTypes.INTEGER })
 // queryInterface.addColumn('Companies', 'type', { type: DataTypes.STRING })
 
-sequelize
+models.sequelize.authenticate()
+
+models.sequelize
   .sync()
   .then(() => {
     app.listen(port, () => {

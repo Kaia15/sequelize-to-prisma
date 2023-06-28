@@ -1,17 +1,32 @@
-version: '3.9'
-
+version: '3.8'
 services:
-  server:
-    build: .
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: myapp-api:latest
     ports:
-      - '1234:8000'
-  db:
-    image: 'postgres'
-    environment:
-      POSTGRES_PASSWORD: '197515'
-      POSTGRES_USER: 'postgres'
-    volumes:
-      - data:/var/lib/postgresql/data
+      - "10001:10001"
+    command: npm run start
 
+  # payment-page:
+  #   build:
+  #     context: ../widget-triplea-ecommerce-payment-v1
+  #     dockerfile: Dockerfile
+  #   image: payment-page:latest
+  #   ports:
+  #     - "8001:8001"
+
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=197515
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
 volumes:
-  data:
+  db:
+    driver: local
