@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "dependencies": {
+    "@prisma/client": "^4.16.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
@@ -17,5 +18,11 @@
     "nodemon": "^2.0.22",
     "pg": "^8.10.0",
     "sequelize": "^6.30.0"
+  },
+  "devDependencies": {
+    "prisma": "^4.16.1"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
   }
 }
