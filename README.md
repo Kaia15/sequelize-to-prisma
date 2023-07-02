@@ -1,1 +1,1 @@
-# sequelize-to-prisma
+# Backend Server & Migrations from Sequelize to Prisma
