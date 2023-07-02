@@ -8,8 +8,7 @@ CREATE TABLE "Companies" (
     "private" BOOLEAN DEFAULT true,
     "createdAt" TIMESTAMPTZ(6) NOT NULL,
     "updateTimestamp" TIMESTAMPTZ(6) NOT NULL,
-    "profit" INTEGER,
-    "type" VARCHAR(255),
+    "size" VARCHAR(255),
 
     CONSTRAINT "Companies_pkey" PRIMARY KEY ("id")
 );
@@ -31,6 +30,7 @@ CREATE TABLE "Users" (
     "age" INTEGER,
     "gender" VARCHAR(255),
     "status" VARCHAR(255),
+    "email" VARCHAR(255),
 
     CONSTRAINT "Users_pkey" PRIMARY KEY ("id")
 );

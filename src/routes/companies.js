@@ -54,7 +54,7 @@ const prisma = require('../prisma')
 // })
 
 router.get('/', async function (req,res,next) {
-    const companies = await prisma.companies.findAll()
+    const companies = await prisma.companies.findMany()
     res.send(companies)
 })
 

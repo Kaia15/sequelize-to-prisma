@@ -47,4 +47,20 @@ router.get('/', async function (req,res,next) {
     res.json(users);
 })
 
+// router.post('/create', async function (req,res,next) {
+//     const user = await prisma.users.create({
+//         data: {
+//             email: 'elsa@prisma.io',
+//             firstName: 'Elsa',
+//             lastName: "Prisma",
+//             createdAt: new Date(),
+//             updateTimestamp: new Date(),
+//             age: 32,
+//             gender: 'female',
+//             status: 'married'
+//         }
+//       });
+//     res.json(user);
+// })
+
 module.exports = router;

@@ -16,8 +16,7 @@ model Companies {
   private         Boolean? @default(true)
   createdAt       DateTime @db.Timestamptz(6)
   updateTimestamp DateTime @db.Timestamptz(6)
-  profit          Int?
-  type            String?  @db.VarChar(255)
+  size            String?  @db.VarChar(255)
 }
 
 model SequelizeMeta {
@@ -33,4 +32,5 @@ model Users {
   age             Int?
   gender          String?  @db.VarChar(255)
   status          String?  @db.VarChar(255)
+  email           String?  @db.VarChar(255)
 }

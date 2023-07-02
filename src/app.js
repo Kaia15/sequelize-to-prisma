@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const nodemon = require('nodemon');
-const port = 8000;
+const port = 8001;
 const app = express();
 
 const models = require('./models/index')
@@ -18,7 +18,8 @@ const usersRouter = require('./routes/users');
 const companiesRouter = require('./routes/companies')
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+// app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname + '../public')));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));

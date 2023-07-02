@@ -15,7 +15,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   Company.init({
     name: DataTypes.STRING,
-    age: DataTypes.INTEGER
+    age: DataTypes.INTEGER,
+    funding: DataTypes.INTEGER,
+    address:  DataTypes.STRING,
+    private: DataTypes.BOOLEAN,
+    createdAt: new Date(),
+    updateTimestamp: new Date(),
+    size: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Company',
