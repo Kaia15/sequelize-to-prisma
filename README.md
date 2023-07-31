@@ -75,4 +75,5 @@
   npm run start
   ```
 - Send some api requests in Postman (now, only POST method uses email sending service, you can modify other methods [GET, DELETE, PUT] and add too).
-
+- If sending POST successfully, there will be an email immediately after we sent api request in Postman.
+  ![image](https://github.com/Kaia15/sequelize-to-prisma/assets/86872685/7e072ace-067f-414c-858e-a4037393947d)
