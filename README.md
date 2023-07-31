@@ -1,4 +1,4 @@
-# PSQL & Mailhog core api endpoints
+# PSQL ORM(s) & Mailhog Service (core api endpoints)
 
 ## Overview
 - This repository provides me a chance to learn about Prisma ORM and Mailhog services integrated into basic server in Node.
