@@ -12,6 +12,7 @@
 ###  Set up database
 1. Refer to Postgresql documentation https://www.postgresql.org/, set up Postgresql and local database at your local.
 2. To connect your local database,
+   
    Step 1: add (modify) .env file:
   ```
   DATABASE_URL="postgresql://your-user:your-password@localhost:5432/your-database?schema=public"
@@ -47,6 +48,7 @@
 - To use mailhog service, we also need NodeMailer, a node package connecting our node server and smtp server under the hood of transporter to send emails.
 ### Set up mailhog:
 - Create a mailhog image in Docker:
+  
   Step 1: Pull mailhog
   ```
   docker pull mailhog/mailhog
