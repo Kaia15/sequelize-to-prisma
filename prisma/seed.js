@@ -2,7 +2,6 @@ const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 async function main() {
-  await prisma.users.deleteMany();
   const users = await prisma.users.createMany({
     data: [
       { firstName:"John",lastName:"Doe",email:"example@example.com",createdAt: new Date(),updateTimestamp: new Date(),age:20,gender:"male",status:"single" },

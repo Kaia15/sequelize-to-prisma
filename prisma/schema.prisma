@@ -27,8 +27,8 @@ model Users {
   id              Int      @id @default(autoincrement())
   firstName       String   @db.VarChar(255)
   lastName        String?  @db.VarChar(255)
-  createdAt       DateTime @db.Timestamptz(6)
-  updateTimestamp DateTime @db.Timestamptz(6)
+  createdAt       DateTime @db.Timestamptz(6) @default(now())
+  updateTimestamp DateTime @db.Timestamptz(6) @default(now())
   age             Int?
   gender          String?  @db.VarChar(255)
   status          String?  @db.VarChar(255)

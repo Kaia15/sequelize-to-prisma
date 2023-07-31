@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const prisma = require('../prisma');
+const mailSrvc = require('../utils/email/mail.srvc');
 
 router.get('/', async function (req,res,next) {
     const users = await prisma.users.findMany();
@@ -8,17 +9,22 @@ router.get('/', async function (req,res,next) {
 })
 
 router.post('/create', async function (req,res,next) {
-    await prisma.users.create({
-        data: {
-            email: 'elsa@prisma.io',
-            firstName: 'Elsa',
-            lastName: "Prisma",
-            createdAt: new Date(),
-            updateTimestamp: new Date(),
-            age: 32,
-            gender: 'female',
-            status: 'married'
-        }});
+    try {
+        const user = await prisma.users.create({ data: req.body });
+        await mailSrvc.sendMail(
+            {
+                from: 'no-reply@xxxxxx.io', 
+                to: user.email, 
+                subject: 'Welcome to X', 
+                text: `Hi ${user.firstName}`
+            }
+        );
+
+        res.send(user);
+    } catch (err) {
+        console.log(err);
+        next();
+    }
 })
 
 router.put('/update', async function (req,res,next) {
