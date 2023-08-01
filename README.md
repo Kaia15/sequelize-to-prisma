@@ -20,7 +20,8 @@
   MAILHOG_PORT = 1025
   ```
    Step 2: modify your schema.prisma
-   Modify your User model (or any other model) (if you want).
+   - Modify your User model (or any other model) (if you want).
+
 3. Refer to Prisma documentation https://www.prisma.io/docs/getting-started, install prisma-client, and prisma-cli for later use.
 4. Run and seed some samples (with existing database you created with your terminal or SQL command prompt).
 - Some useful commands:
